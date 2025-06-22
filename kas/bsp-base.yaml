@@ -6,7 +6,7 @@ build_system: oe
 distro: poky
 
 repos:
-  meta-treinamento:
+  meta-treinamento-2025:
 
 local_conf_header:
   rm_work: |
