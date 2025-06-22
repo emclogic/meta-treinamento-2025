@@ -1,7 +1,25 @@
 header:
   version: 16
 
+target: treinamento-bsp
+build_system: oe
+distro: poky
+
+local_conf_header:
+  rm_work: |
+    INHERIT += "rm_work"
+  package_management: |
+    PACKAGE_CLASSES = "package_deb"
+  debug-tweaks: |
+    EXTRA_IMAGE_FEATURES += "debug-tweaks allow-empty-password empty-root-password"
+  distro-features: |
+    DISTRO_FEATURES:append = " systemd usrmerge pam"
+    DISTRO_FEATURES:remove = " x11 alsa bluetooth opengl"
+
 repos:
+
+  meta-treinamento:
+
   poky:
     url: "git://git.yoctoproject.org/poky"
     path: layers/poky

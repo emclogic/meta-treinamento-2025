@@ -1,8 +1,6 @@
 inherit core-image
 
 IMAGE_DEV_MANAGER = "udev"
-IMAGE_INIT_MANAGER = "systemd"
-INIT_MANAGER = "systemd"
 
 IMAGE_LINGUAS = "pt-br"
 
@@ -17,8 +15,6 @@ IMAGE_FEATURES:append = "\
 
 IMAGE_FEATURES:remove = "dev-pkgs perf"
 
-IMAGE_FSTYPES:append = " wic.bz2 ext4"
-
 IMAGE_OVERHEAD_FACTOR = "2"
 
 FONTS = "\
@@ -27,9 +23,6 @@ FONTS = "\
 	"
 
 CORE = "\
-    systemd systemd-analyze systemd-bootchart \
-    sysvinit-inittab \
-    mesa \
     vim \
     logrotate \
     htop \

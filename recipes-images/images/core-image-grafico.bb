@@ -7,7 +7,6 @@ IMAGE_FEATURES:append = "\
 
 WESTON_BASE = "\
     packagegroup-core-weston \
-    xwayland \
     "
 
 LVGL = "lvgl-demo-fb"

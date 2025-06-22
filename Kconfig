@@ -51,4 +51,3 @@ config KAS_INCLUDE_MACHINE
 config KAS_INCLUDE_BSP
     string
     default "kas/scarthgap-base.yaml"
-    default "kas/bsp-base.yaml"
