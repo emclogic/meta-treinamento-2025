@@ -1,0 +1,16 @@
+header:
+  version: 16
+
+build_system: oe
+distro: poky
+_source_dir: .
+repos:
+  meta-treinamento:
+
+local_conf_header:
+  rm_work: |
+    INHERIT += "rm_work"
+  package_management: |
+    PACKAGE_CLASSES = "package_ipk"
+  debug-tweaks: |
+    EXTRA_IMAGE_FEATURES += "debug-tweaks allow-empty-password empty-root-password"

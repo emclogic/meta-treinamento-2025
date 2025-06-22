@@ -1,0 +1,54 @@
+# Select Build Type
+choice
+    prompt "Select Image"
+    default BUILD_IMAGE_MINIMAL
+
+config BUILD_IMAGE_MINIMAL
+    bool "core-image-minimal"
+
+config BUILD_IMAGE_WESTON
+    bool "core-image-weston"
+
+endchoice
+
+# Select Machine
+choice
+    prompt "Select Machine"
+    default MACHINE_RASPBERRYPI3
+
+config MACHINE_QEMU_X86_64
+    bool "qemux86-64"
+    select PLATFORM_QEMU_X86_64
+
+config MACHINE_RASPBERRYPI3
+    bool "RASPBERRYPI3-64"
+    select PLATAFORM_RASPBERRYPI3
+
+endchoice
+
+config KAS_TARGET_BUILD
+        string
+        default "core-image-minimal" if BUILD_IMAGE_MINIMAL
+        default "core-image-weston" if BUILD_IMAGE_WESTON
+
+
+config PLATFORM_QEMU_X86_64
+    bool
+    default y if MACHINE_QEMU_X86_64
+
+config PLATFORM_RASPBERRYPI3
+    bool
+    default y if MACHINE_RASPBERRYPI3
+
+config KAS_INCLUDE_MACHINE
+    string
+    default "kas/machines/qemux86-64.yaml" if MACHINE_QEMU_X86_64
+
+config KAS_INCLUDE_MACHINE
+    string
+    default "kas/machines/raspberrypi3.yaml" if MACHINE_RASPBERRYPI3
+
+config KAS_INCLUDE_BSP
+    string
+    default "kas/scarthgap-base.yaml"
+    default "kas/bsp-base.yaml"

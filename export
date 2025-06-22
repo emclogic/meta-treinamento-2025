@@ -1,0 +1,5 @@
+#!/bin/sh
+LOCAL_PATH="$(pwd)"
+BUILDDIR="${LOCAL_PATH}/build"
+cd layers/poky
+. ./oe-init-build-env ${BUILDDIR}
