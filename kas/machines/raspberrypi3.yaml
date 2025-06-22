@@ -1,11 +1,4 @@
 header:
   version: 16
 
-# The machine as it is written into the `local.conf` of bitbake.
 machine: raspberrypi3-64
-
-local_conf_header:
-  rpi-specific: |
-    ENABLE_UART = "1"
-    ENABLE_I2C = "1"
-    LICENSE_FLAGS_ACCEPTED += "synaptics-killswitch commercial"

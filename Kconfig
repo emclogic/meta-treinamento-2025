@@ -4,10 +4,10 @@ choice
     default BUILD_IMAGE_MINIMAL
 
 config BUILD_IMAGE_MINIMAL
-    bool "core-image-minimal"
+    bool "core-image-console"
 
 config BUILD_IMAGE_WESTON
-    bool "core-image-weston"
+    bool "core-image-grafico"
 
 endchoice
 
@@ -28,8 +28,8 @@ endchoice
 
 config KAS_TARGET_BUILD
         string
-        default "core-image-minimal" if BUILD_IMAGE_MINIMAL
-        default "core-image-weston" if BUILD_IMAGE_WESTON
+        default "core-image-console" if BUILD_IMAGE_MINIMAL
+        default "core-image-grafico" if BUILD_IMAGE_WESTON
 
 
 config PLATFORM_QEMU_X86_64

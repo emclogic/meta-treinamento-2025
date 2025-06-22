@@ -4,8 +4,8 @@ header:
 repos:
   poky:
     url: "git://git.yoctoproject.org/poky"
-    branch: scarthgap
     path: layers/poky
+    branch: scarthgap
     layers:
       meta:
       meta-poky:
@@ -13,8 +13,8 @@ repos:
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
-    branch: scarthgap
     path: layers/meta-openembedded
+    branch: scarthgap
     layers:
       meta-oe:
       meta-python:

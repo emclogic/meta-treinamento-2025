@@ -1,9 +1,10 @@
 header:
   version: 16
 
+target: treinamento-bsp
 build_system: oe
 distro: poky
-_source_dir: .
+
 repos:
   meta-treinamento:
 
