@@ -31,21 +31,9 @@ config KAS_TARGET_BUILD
         default "core-image-console" if BUILD_IMAGE_MINIMAL
         default "core-image-grafico" if BUILD_IMAGE_WESTON
 
-
-config PLATFORM_QEMU_X86_64
-    bool
-    default y if MACHINE_QEMU_X86_64
-
-config PLATFORM_RASPBERRYPI3
-    bool
-    default y if MACHINE_RASPBERRYPI3
-
 config KAS_INCLUDE_MACHINE
     string
     default "kas/machines/qemux86-64.yaml" if MACHINE_QEMU_X86_64
-
-config KAS_INCLUDE_MACHINE
-    string
     default "kas/machines/raspberrypi3.yaml" if MACHINE_RASPBERRYPI3
 
 config KAS_INCLUDE_BSP
