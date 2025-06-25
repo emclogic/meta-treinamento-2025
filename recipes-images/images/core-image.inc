@@ -32,6 +32,15 @@ CORE = "\
     wget \
     curl \
     python3 \
+    python3-gpiod \
+    python3-spidev \
+    python3-virtualenv \
+    python3-pillow \
+    python3-pip \
+    spidev-test \
+    minicom \
+    i2c-tools \
+    libgpiod \
     "
 
 IMAGE_INSTALL:append = "\
