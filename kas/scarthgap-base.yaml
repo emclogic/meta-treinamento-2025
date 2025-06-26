@@ -14,7 +14,11 @@ local_conf_header:
     EXTRA_IMAGE_FEATURES += "debug-tweaks allow-empty-password empty-root-password"
   distro-features: |
     DISTRO_FEATURES:append = " systemd usrmerge pam"
-    DISTRO_FEATURES:remove = " x11 alsa bluetooth opengl"
+    DISTRO_FEATURES:remove = " sysvinit x11 alsa bluetooth opengl"
+  init-features: |
+    INIT_MANAGER = "systemd"
+    PREFERRED_PROVIDER_udev = "systemd"
+    PREFERRED_VERSION_libgpiod = "2.1.3"
 
 repos:
 

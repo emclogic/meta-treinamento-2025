@@ -7,7 +7,7 @@ IMAGE_LINGUAS = "pt-br"
 IMAGE_FEATURES:append = "\
 	splash \
 	package-management \
-    ssh-server-dropbear \
+    ssh-server-openssh \
 	debug-tweaks \
 	allow-empty-password \
     allow-root-login \
@@ -21,6 +21,23 @@ FONTS = "\
 	ttf-dejavu \
 	liberation-font \
 	"
+PYTHON = "\
+    python3 \
+    python3-gpiod \
+    python3-spidev \
+    python3-virtualenv \
+    python3-pillow \
+    python3-pip \
+  	python3-pybind11 \
+    python3-misc \
+    python3-modules \
+    python3-io \
+    python3-json \
+    python3-logging \
+    python3-threading \
+    python3-multiprocessing \
+    "
+
 
 CORE = "\
     vim \
@@ -31,21 +48,15 @@ CORE = "\
     nano \
     wget \
     curl \
-    python3 \
-    python3-gpiod \
-    python3-spidev \
-    python3-virtualenv \
-    python3-pillow \
-    python3-pip \
     spidev-test \
     minicom \
     i2c-tools \
     libgpiod \
+    ${PYTHON} \
     "
 
 IMAGE_INSTALL:append = "\
     packagegroup-core-boot \
-    packagegroup-basic \
     kernel-modules \
     ${CORE} \
     "

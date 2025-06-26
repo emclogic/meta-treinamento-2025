@@ -1,6 +1,6 @@
-# Select Build Type
+# Selecao do tipo de imagem
 choice
-    prompt "Select Image"
+    prompt "Selecione a Imagem"
     default BUILD_IMAGE_MINIMAL
 
 config BUILD_IMAGE_MINIMAL
@@ -11,9 +11,9 @@ config BUILD_IMAGE_WESTON
 
 endchoice
 
-# Select Machine
+# Selecao do tipo de dispositivo
 choice
-    prompt "Select Machine"
+    prompt "Selecione o target"
     default MACHINE_RASPBERRYPI3
 
 config MACHINE_QEMU_X86_64
