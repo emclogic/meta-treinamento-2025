@@ -13,7 +13,7 @@ IMAGE_FEATURES:append = "\
     allow-root-login \
 	"
 
-IMAGE_FEATURES:remove = "dev-pkgs perf"
+IMAGE_FEATURES:remove = " perf"
 
 IMAGE_OVERHEAD_FACTOR = "2"
 
@@ -24,6 +24,7 @@ FONTS = "\
 PYTHON = "\
     python3 \
     python3-gpiod \
+    python3-dev \
     python3-spidev \
     python3-virtualenv \
     python3-pillow \
@@ -52,6 +53,8 @@ CORE = "\
     minicom \
     i2c-tools \
     libgpiod \
+    libgpiod-tools \
+    libgpiod-dev \
     ${PYTHON} \
     "
 
