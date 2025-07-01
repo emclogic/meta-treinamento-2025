@@ -1,25 +1,18 @@
 require recipes-images/images/core-image.inc
 inherit core-image
 
-IMAGE_FEATURES:append = "\
-    weston \
-	"
-
-WESTON_BASE = "\
-    packagegroup-core-weston \
-    "
-
-LVGL = "lvgl-demo-fb"
-
-IMAGE_INSTALL:append:genericx86-64 = " mesa-demos"
-
-IMAGE_INSTALL:append:raspberrypi3-64 = " \
-    raspi-gpio \
-    rpio \
-    udev-rules-rpi \
-    "
-
+LVGL = "lvgl-demo-fb \
+        lvgl \
+        libevdev \
+        evtest \
+        "
 IMAGE_INSTALL:append = "\
     ${LVGL} \
-    ${WESTON_BASE} \
     "
+
+
+TOOLCHAIN_HOST_TASK:append = " nativesdk-cmake nativesdk-pkgconfig"
+TOOLCHAIN_TARGET_TASK:append = " lvgl-dev"
+
+
+TOOLCHAIN_TARGET_TASK:remove = " lvgl-demo-fb lvgl-demo-fb-dev "

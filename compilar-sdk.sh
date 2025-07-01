@@ -4,5 +4,4 @@ BUILDDIR="${LOCAL_PATH}/build"
 cd layers/poky
 . ./oe-init-build-env ${BUILDDIR}
 cd ..
-runqemu kvm qemuparams="-m 1024  -smp 4 -display sdl,show-cursor=on" 
-# bootparams="console="
+bitbake  core-image-grafico -c populate_sdk

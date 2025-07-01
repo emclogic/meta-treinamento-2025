@@ -13,8 +13,8 @@ local_conf_header:
   debug-tweaks: |
     EXTRA_IMAGE_FEATURES += "debug-tweaks allow-empty-password empty-root-password"
   distro-features: |
-    DISTRO_FEATURES:append = " systemd usrmerge pam"
-    DISTRO_FEATURES:remove = " sysvinit x11 alsa bluetooth opengl"
+    DISTRO_FEATURES:append = " systemd opengl drm kms"
+    DISTRO_FEATURES:remove = " sysvinit x11 wayland alsa bluetooth"
   init-features: |
     INIT_MANAGER = "systemd"
     PREFERRED_PROVIDER_udev = "systemd"

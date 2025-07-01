@@ -58,6 +58,12 @@ CORE = "\
     ${PYTHON} \
     "
 
+IMAGE_INSTALL:append:raspberrypi3-64 = " \
+    raspi-gpio \
+    rpio \
+    udev-rules-rpi \
+    "
+
 IMAGE_INSTALL:append = "\
     packagegroup-core-boot \
     kernel-modules \
