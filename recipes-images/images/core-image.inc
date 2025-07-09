@@ -42,6 +42,7 @@ PYTHON = "\
 
 CORE = "\
     vim \
+    git \
     logrotate \
     htop \
     net-tools \
