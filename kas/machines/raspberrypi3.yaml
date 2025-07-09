@@ -16,4 +16,4 @@ local_conf_header:
     RPI_USE_U_BOOT = "1"
     ENABLE_UART = "1"
     ENABLE_I2C = "1"
-
+    RPI_KERNEL_DEVICETREE_OVERLAYS:append = " overlays/pwm1.dtbo overlays/i2c1.dtbo"
