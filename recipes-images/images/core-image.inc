@@ -7,10 +7,10 @@ IMAGE_LINGUAS = "pt-br"
 IMAGE_FEATURES:append = "\
 	splash \
 	package-management \
-    ssh-server-openssh \
+  ssh-server-openssh \
 	debug-tweaks \
 	allow-empty-password \
-    allow-root-login \
+  allow-root-login \
 	"
 
 IMAGE_FEATURES:remove = " perf"
@@ -39,6 +39,14 @@ PYTHON = "\
     python3-multiprocessing \
     "
 
+DEBUG = " strace \
+    procps \
+    sysstat \
+    packagegroup-core-buildessential \
+    gdb \
+	lsof \
+    packagegroup-core-tools-debug \
+"
 
 CORE = "\
     vim \
@@ -56,8 +64,11 @@ CORE = "\
     libgpiod \
     libgpiod-tools \
     libgpiod-dev \
+    logrotate \
+    ${DEBUG} \
     ${PYTHON} \
     "
+
 
 IMAGE_INSTALL:append:raspberrypi3-64 = " \
     raspi-gpio \
