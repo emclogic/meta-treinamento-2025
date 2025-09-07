@@ -1,0 +1,19 @@
+
+header:
+  version: 16
+
+machine: bananapi-m64
+
+repos:
+  meta-sunxi:
+    url: https://github.com/linux-sunxi/meta-sunxi.git
+    path: layers/meta-sunxi
+    branch: scarthgap
+
+  meta-arm:
+    url: https://git.yoctoproject.org/meta-arm.git
+    path: layers/meta-arm
+    branch: scarthgap
+    layers:
+      meta-arm:
+      meta-arm-toolchain:

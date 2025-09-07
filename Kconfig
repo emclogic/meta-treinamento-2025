@@ -24,6 +24,10 @@ config MACHINE_RASPBERRYPI3
     bool "RASPBERRYPI3-64"
     select PLATAFORM_RASPBERRYPI3
 
+config MACHINE_BANANAPI-M64
+    bool "BANANAPI-M64"
+    select PLATAFORM_BANANAPI-M64
+
 endchoice
 
 config KAS_TARGET_BUILD
@@ -35,6 +39,7 @@ config KAS_INCLUDE_MACHINE
     string
     default "kas/machines/qemux86-64.yaml" if MACHINE_QEMU_X86_64
     default "kas/machines/raspberrypi3.yaml" if MACHINE_RASPBERRYPI3
+    default "kas/machines/bananapi-m64.yaml" if MACHINE_BANANAPI-M64
 
 config KAS_INCLUDE_BSP
     string
