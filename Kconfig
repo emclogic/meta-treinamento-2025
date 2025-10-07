@@ -9,6 +9,9 @@ config BUILD_IMAGE_MINIMAL
 config BUILD_IMAGE_WESTON
     bool "core-image-grafico"
 
+config BUILD_IMAGE_RAUC
+    bool "core-image-rauc"
+
 endchoice
 
 # Selecao do tipo de dispositivo
@@ -24,6 +27,10 @@ config MACHINE_RASPBERRYPI3
     bool "RASPBERRYPI3-64"
     select PLATAFORM_RASPBERRYPI3
 
+config MACHINE_RASPBERRYPI3-RAUC
+    bool "RASPBERRYPI3-64-RAUC"
+    select PLATAFORM_RASPBERRYPI3
+
 config MACHINE_BANANAPI-M64
     bool "BANANAPI-M64"
     select PLATAFORM_BANANAPI-M64
@@ -34,11 +41,13 @@ config KAS_TARGET_BUILD
         string
         default "core-image-console" if BUILD_IMAGE_MINIMAL
         default "core-image-grafico" if BUILD_IMAGE_WESTON
+        default "core-image-minimal" if BUILD_IMAGE_RAUC
 
 config KAS_INCLUDE_MACHINE
     string
     default "kas/machines/qemux86-64.yaml" if MACHINE_QEMU_X86_64
     default "kas/machines/raspberrypi3.yaml" if MACHINE_RASPBERRYPI3
+    default "kas/machines/raspberrypi3-rauc.yaml" if MACHINE_RASPBERRYPI3-RAUC
     default "kas/machines/bananapi-m64.yaml" if MACHINE_BANANAPI-M64
 
 config KAS_INCLUDE_BSP

@@ -13,12 +13,14 @@ local_conf_header:
   debug-tweaks: |
     EXTRA_IMAGE_FEATURES += "debug-tweaks allow-empty-password empty-root-password"
   distro-features: |
-    DISTRO_FEATURES:append = " systemd opengl drm kms"
+    DISTRO_FEATURES:append = " systemd opengl drm kms virtualization"
     DISTRO_FEATURES:remove = " sysvinit x11 wayland alsa bluetooth"
   init-features: |
     INIT_MANAGER = "systemd"
     PREFERRED_PROVIDER_udev = "systemd"
     PREFERRED_VERSION_libgpiod = "2.1.2"
+    #  add-software: |
+    #    IMAGE_INSTALL:append =  " htop "
 
 repos:
 
@@ -42,8 +44,31 @@ repos:
       meta-python:
       meta-multimedia:
       meta-networking:
+      meta-filesystems:
 
   meta-lts-mixins:
     url: "git://git.yoctoproject.org/meta-lts-mixins"
-    branch: scarthgap/rust
+    branch: scarthgap/u-boot
     path: layers/meta-lts-mixins
+
+  meta-virtualization:
+    url: "git://git.yoctoproject.org/meta-virtualization"
+    branch: scarthgap
+    path: layers/meta-virtualization
+
+  meta-rauc:
+    url: "https://github.com/rauc/meta-rauc.git"
+    branch: scarthgap
+    path: layers/meta-rauc
+
+  meta-rauc-community:
+    url: "https://github.com/rauc/meta-rauc-community.git"
+    branch: scarthgap
+    path: layers/meta-rauc-community
+    layers:
+      meta-rauc-raspberrypi:
+
+  meta-shellhub:
+    url: "https://github.com/shellhub-io/meta-shellhub"
+    branch: scarthgap
+    path: layers/meta-shellhub
