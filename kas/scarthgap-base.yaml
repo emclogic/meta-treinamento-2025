@@ -19,8 +19,8 @@ local_conf_header:
     INIT_MANAGER = "systemd"
     PREFERRED_PROVIDER_udev = "systemd"
     PREFERRED_VERSION_libgpiod = "2.1.2"
-    #  add-software: |
-    #    IMAGE_INSTALL:append =  " htop "
+  add-software: |
+    IMAGE_INSTALL:append =  " htop "
 
 repos:
 
@@ -55,20 +55,3 @@ repos:
     url: "git://git.yoctoproject.org/meta-virtualization"
     branch: scarthgap
     path: layers/meta-virtualization
-
-  meta-rauc:
-    url: "https://github.com/rauc/meta-rauc.git"
-    branch: scarthgap
-    path: layers/meta-rauc
-
-  meta-rauc-community:
-    url: "https://github.com/rauc/meta-rauc-community.git"
-    branch: scarthgap
-    path: layers/meta-rauc-community
-    layers:
-      meta-rauc-raspberrypi:
-
-  meta-shellhub:
-    url: "https://github.com/shellhub-io/meta-shellhub"
-    branch: scarthgap
-    path: layers/meta-shellhub

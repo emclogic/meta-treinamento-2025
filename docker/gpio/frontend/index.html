@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle do LED ACT da Raspberry Pi</title>
+    <style>
+        /* ... (CSS permanece o mesmo) ... */
+        body { font-family: sans-serif; text-align: center; margin: 40px; background-color: #f4f4f9; }
+        .pin-control { margin: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; display: inline-block; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .pin-control h2 { margin-top: 0; color: #333; }
+        .btn { padding: 10px 20px; margin: 5px; cursor: pointer; border: none; border-radius: 5px; font-weight: bold; }
+        .btn-on { background-color: #4CAF50; color: white; }
+        .btn-off { background-color: #f44336; color: white; }
+        .btn:hover { opacity: 0.8; }
+        #status-message { margin-top: 20px; font-size: 1.1em; color: #007bff; }
+    </style>
+</head>
+<body>
+    <h1>Controle do LED ACT (Atividade)</h1>
+    <p>O LED ACT é controlado diretamente via sistema de arquivos do Linux.</p>
+    <div id="led-control" class="pin-control">
+        <h2>LED ACT da Placa</h2>
+        <button class="btn btn-on" onclick="controlLed('on')">LIGAR</button>
+        <button class="btn btn-off" onclick="controlLed('off')">DESLIGAR</button>
+    </div>
+    <div id="status-message">Aguardando comando...</div>
+
+    <script>
+        const API_BASE_URL = 'http://backend:5000/led';
+
+        async function controlLed(action) {
+            const statusMessage = document.getElementById('status-message');
+            statusMessage.textContent = `Enviando comando para LED ACT...`;
+
+            try {
+                // Ao usar um browser, o nome do host é 'localhost' ou o IP da Raspberry Pi,
+                // e a porta exposta é a do Nginx (80), que irá fazer o proxy reverso.
+                const url = `http://${window.location.hostname}:5000/led/${action}`;
+
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    statusMessage.textContent = `Sucesso: LED ACT ${data.action === 'on' ? 'LIGADO' : 'DESLIGADO'}.`;
+                } else {
+                    statusMessage.textContent = `Erro: ${data.message}`;
+                }
+            } catch (error) {
+                console.error('Erro de rede/API:', error);
+                statusMessage.textContent = 'Erro ao se comunicar com o servidor da GPIO. Verifique se o container backend está rodando.';
+            }
+        }
+    </script>
+</body>
+</html>

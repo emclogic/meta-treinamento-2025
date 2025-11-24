@@ -7,10 +7,10 @@ IMAGE_LINGUAS = "pt-br"
 IMAGE_FEATURES:append = "\
 	splash \
 	package-management \
-  ssh-server-openssh \
 	debug-tweaks \
+	ssh-server-dropbear \
 	allow-empty-password \
-  allow-root-login \
+	allow-root-login \
 	"
 
 IMAGE_FEATURES:remove = " perf"
@@ -29,7 +29,7 @@ PYTHON = "\
     python3-virtualenv \
     python3-pillow \
     python3-pip \
-  	python3-pybind11 \
+    python3-pybind11 \
     python3-misc \
     python3-modules \
     python3-io \
@@ -44,7 +44,7 @@ DEBUG = " strace \
     sysstat \
     packagegroup-core-buildessential \
     gdb \
-	lsof \
+    lsof \
     packagegroup-core-tools-debug \
 "
 
@@ -65,15 +65,17 @@ CORE = "\
     libgpiod-tools \
     libgpiod-dev \
     logrotate \
+    docker-moby \
+    docker-compose \
     ${DEBUG} \
     ${PYTHON} \
     "
-
 
 IMAGE_INSTALL:append:raspberrypi3-64 = " \
     raspi-gpio \
     rpio \
     udev-rules-rpi \
+    wpa-supplicant \
     "
 
 IMAGE_INSTALL:append = "\
